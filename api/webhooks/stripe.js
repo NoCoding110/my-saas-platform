@@ -125,7 +125,7 @@ async function handleSubscriptionDeleted(subscription) {
 
 function getPlanFromPrice(priceId) {
   const priceMap = {
-    'price_1Rd1NoDk6rYLLZz8rv9MpK6Z': 'professional',
+    'price_1Rd2eMDk6rYLLZz8NWWydDKh': 'professional',
   };
   
   return priceMap[priceId] || 'starter';

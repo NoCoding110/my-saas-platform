@@ -20,7 +20,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     payment_method_types: ['card'],
     mode: 'subscription',
     line_items: [
-      { price: 'price_1Rd1NoDk6rYLLZz8rv9MpK6Z', quantity: 1 }
+      { price: 'price_1Rd2eMDk6rYLLZz8NWWydDKh', quantity: 1 }
     ],
     success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: 'http://localhost:3000/cancel',
