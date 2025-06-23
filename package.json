@@ -1,0 +1,30 @@
+{
+  "name": "my-saas-platform",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^6.1.1",
+    "@sendgrid/mail": "^8.1.5",
+    "@supabase/supabase-js": "^2.50.0",
+    "axios": "^1.10.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "googleapis": "^150.0.1",
+    "openai": "^5.6.0",
+    "stripe": "^18.2.1",
+    "twilio": "^5.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.29.0",
+    "jest": "^30.0.2",
+    "prettier": "^3.5.3"
+  },
+  "type": "module"
+}
