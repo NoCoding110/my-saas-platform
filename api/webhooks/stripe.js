@@ -18,7 +18,14 @@ export default async function handler(req, res) {
   let event;
 
   try {
-    const body = JSON.stringify(req.body);
+    // For Vercel, we need to handle the body differently
+    let body;
+    if (typeof req.body === 'string') {
+      body = req.body;
+    } else {
+      body = JSON.stringify(req.body);
+    }
+    
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
     console.error('Webhook signature verification failed:', err.message);
@@ -70,8 +77,8 @@ async function handleCheckoutCompleted(session) {
       company_name: companyName,
       subdomain: subdomain,
       email: customer.email,
-      plan: planType,           // Required field
-      plan_type: planType,      // For consistency
+      plan: planType,
+      plan_type: planType,
       status: 'active'
     })
     .select()
@@ -170,4 +177,13 @@ async function createDefaultFAQs(tenant) {
   } else {
     console.log('Created default FAQs for tenant:', tenant.id);
   }
+}
+
+// Configure to receive raw body for signature verification
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+  },
 }
